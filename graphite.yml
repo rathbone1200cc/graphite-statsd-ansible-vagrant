@@ -1,13 +1,13 @@
-- hosts: all
+- hosts: util
   sudo: True
   vars:
     graphite:
       version: master
-      timezone: Europe/Paris
+      timezone: America/Los_Angeles
       workers: 4
       host: 0.0.0.0
-      server: graphite.local
-      secret_key: 'ob3sow^ik#4q(k5*tgw&6j+osyr^@0jus$yd+-#^&^d#%yim1!'
+      server: localhost
+      secret_key: 'hotdogyb%uwey!#bcsdyr_u#jb!cbtsdx899=0_nvqckic4q3v*+mm#whotdog'
     carbon:
       host: 0.0.0.0
       ssl: no
