@@ -80,6 +80,12 @@
 - name: graphite conf
   template: src=local_settings.py.j2 dest=/opt/graphite/webapp/graphite/local_settings.py mode=0644
 
+- name: graphite middleware
+  template: src=middleware.py.j2 dest=/opt/graphite/webapp/graphite/middleware.py mode=0644
+
+- name: graphite app settings
+  template: src=app_settings.py.j2 dest=/opt/graphite/webapp/graphite/app_settings.py mode=0644
+
 - name: syncdb for graphite
   shell: export PYTHONPATH=/opt/graphite/webapp/; /opt/graphite/bin/python /opt/graphite/bin/django-admin.py syncdb --noinput --settings=graphite.settings
 
