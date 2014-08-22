@@ -11,6 +11,7 @@
     carbon:
       host: 0.0.0.0
       ssl: no
+      version: 5ac6693d708c02a45ab001dcba66d515b830f55c
     db_graphite:
       name: graphite
       user: graphite

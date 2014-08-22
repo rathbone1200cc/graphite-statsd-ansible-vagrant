@@ -49,21 +49,27 @@
 # CARBON
 
 - name: carbon source
-  get_url: url=https://github.com/graphite-project/carbon/archive/{{ graphite.version }}.tar.gz dest=/opt/graphite/carbon-{{ graphite.version }}.tar.gz
+  tags: carbon_install
+  get_url: url=https://github.com/graphite-project/carbon/archive/{{ carbon.version }}.tar.gz dest=/opt/graphite/carbon-{{ carbon.version }}.tar.gz
 
 - name: unarchive source
-  command: tar -xvzf /opt/graphite/carbon-{{graphite.version}}.tar.gz chdir=/opt/graphite creates=/opt/graphite/carbon-{{ graphite.version }}
+  tags: carbon_install
+  command: tar -xvzf /opt/graphite/carbon-{{carbon.version}}.tar.gz chdir=/opt/graphite creates=/opt/graphite/carbon-{{ carbon.version }}
 
 - name: install carbon
-  command: ./bin/pip install ./carbon-{{ graphite.version }}/ chdir=/opt/graphite
+  tags: carbon_install
+  command: ./bin/pip install ./carbon-{{ carbon.version }}/ chdir=/opt/graphite
 
 - name: Configure carbon cache
+  tags: carbon_install
   template: src=carbon.conf.j2 dest=/opt/graphite/conf/carbon.conf mode=0644
 
 - name: Configure carbon storage schema
+  tags: carbon_install
   template: src=storage-schemas.conf.j2 dest=/opt/graphite/conf/storage-schemas.conf mode=0644
 
 - name: Configure carbon storage aggregation
+  tags: carbon_install
   template: src=storage-aggregation.conf.j2 dest=/opt/graphite/conf/storage-aggregation.conf mode=0644
 
 # GRAPHITE WEBAPP
