@@ -16,9 +16,8 @@ server {
       alias /opt/graphite/webapp/content;
     }
 
-    location /media/ {
-      # this changes depending on your python version
-      root /opt/graphite/lib/python2.7/site-packages/django/contrib/admin;
+    location /static/admin {
+      alias /opt/graphite/lib/python2.7/site-packages/django/contrib/admin/static/admin;
     }
 
     location / {
